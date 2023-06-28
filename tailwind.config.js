@@ -1,3 +1,5 @@
+const { keyframes } = require('@emotion/react')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -7,10 +9,20 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      keyframes: {
+        blob: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
+        },
+        loginText: {
+          '0%, 100%': { transform: 'translate(0px)' },
+          '50%': { transform: 'translate(80%)' },
+        }
+      },
+      animation: {
+        'blob': 'blob 3.5s infinite',
+        'loginText': 'loginText 5s infinite'
+
       },
     },
   },
